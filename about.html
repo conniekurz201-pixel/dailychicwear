@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Your Style Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+        .content-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .about-text h2 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--accent-color);
+        }
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .about-text ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .about-text li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+        .team-section {
+            margin-top: 3rem;
+        }
+        .team-section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .team-member h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .team-member p {
+            color: var(--text-muted);
+        }
+        @media (max-width: 700px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="logo">YOUR STYLE HUB</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#beauty">Beauty</a></li>
+                    <li><a href="index.html#skincare">Skincare</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <h1>About Your Style Hub</h1>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Your Style Hub">
+            </div>
+            
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Founded in 2020, Your Style Hub has quickly become a trusted destination for fashion-forward individuals seeking quality clothing, beauty products, and skincare essentials. Our mission is to empower women to look and feel their best through carefully curated products and expert advice.</p>
+                
+                <h2>Our Vision</h2>
+                <p>We believe that style is a form of self-expression. Our goal is to make high-quality fashion and beauty accessible to everyone, regardless of budget or experience level.</p>
+                
+                <h2>What We Stand For</h2>
+                <ul>
+                    <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Quality Products - We carefully select every item we sell</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Customer Satisfaction - Your happiness is our priority</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Sustainable Practices - We care about the environment</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color);"></i> Expert Advice - Our team shares valuable tips and trends</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop&circle" alt="Sarah Chen">
+                    <h3>Sarah Chen</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&h=200&fit=crop&circle" alt="Emily Wilson">
+                    <h3>Emily Wilson</h3>
+                    <p>Head of Fashion</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&circle" alt="Lisa Martinez">
+                    <h3>Lisa Martinez</h3>
+                    <p>Beauty Director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">YOUR STYLE HUB</span>
+                    <p>Your destination for fashion, beauty, and skincare</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="index.html#fashion">Fashion</a></li>
+                        <li><a href="index.html#beauty">Beauty</a></li>
+                        <li><a href="index.html#skincare">Skincare</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Your Style Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

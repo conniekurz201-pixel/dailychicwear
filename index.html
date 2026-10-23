@@ -1,59 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LifestyleHub - Your Guide to Fashion, Beauty & More</title>
-  <meta name="description" content="Discover the latest trends, product reviews, and recommendations across fashion, beauty, style, electronics, and food at LifestyleHub.">
-  <meta property="og:title" content="LifestyleHub - Your Guide to Fashion, Beauty & More">
-  <meta property="og:description" content="Discover the latest trends, product reviews, and recommendations across fashion, beauty, style, electronics, and food.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Style Hub - Fashion & Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
-<body data-page="home">
-  <div id="site-header"></div>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Discover Your Perfect Lifestyle</h1>
-      <p>Explore curated product recommendations and expert guides across fashion, beauty, electronics, and more. Updated daily with fresh content.</p>
-      <a href="#latest" class="hero-cta">Explore Articles →</a>
-    </div>
-  </section>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="logo">YOUR STYLE HUB</div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#beauty">Beauty</a></li>
+                    <li><a href="#skincare">Skincare</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <!-- Categories Section -->
-  <section class="section" id="categories">
-    <div class="container">
-      <div class="section-header">
-        <h2>Explore Categories</h2>
-        <p>Find articles and product recommendations by your interests</p>
-        <div class="section-title-accent"></div>
-      </div>
-      <div class="category-grid" id="categoryGrid"></div>
-    </div>
-  </section>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">NEW COLLECTION</span>
+            <h1>Discover Your Style</h1>
+            <p>Explore the latest fashion trends and beauty essentials</p>
+            <a href="https://www.amazon.com/s?k=womens+fashion&ref=nb_sb_noss_2" target="_blank" class="cta-btn">Shop Now</a>
+        </div>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=750&fit=crop" alt="Fashion Model">
+        </div>
+    </section>
 
-  <!-- Latest Articles Section -->
-  <section class="section articles-section" id="latest">
-    <div class="container">
-      <div class="section-header">
-        <h2>Latest Articles</h2>
-        <p>Fresh content updated daily - starting November 2025</p>
-        <div class="section-title-accent"></div>
-      </div>
-      <div class="articles-grid" id="latestArticles"></div>
-    </div>
-  </section>
+    <section id="fashion" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Fashion</h2>
+            <div class="product-row">
+                <a href="https://www.amazon.com/s?k=floral%20maxi%20dress&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=500&fit=crop" alt="Floral Dress">
+                        <h4>Floral Maxi Dress</h4>
+                        <p>$49.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=designer%20sunglasses&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=500&fit=crop" alt="Sunglasses">
+                        <h4>Designer Sunglasses</h4>
+                        <p>$39.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=luxury%20handbag&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop" alt="Handbag">
+                        <h4>Luxury Handbag</h4>
+                        <p>$89.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <div id="site-footer"></div>
-  
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
-  
-  <script src="js/data.js?v=20261024"></script>
-  <script src="js/main.js?v=20261024"></script>
+    <section id="beauty" class="category-section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Beauty</h2>
+            <div class="product-row">
+                <a href="https://www.amazon.com/s?k=premium%20lipstick&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop" alt="Lipstick">
+                        <h4>Premium Lipstick</h4>
+                        <p>$29.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=eyeshadow%20palette&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop" alt="Eyeshadow">
+                        <h4>Eyeshadow Palette</h4>
+                        <p>$34.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=makeup%20brush%20set&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=500&fit=crop" alt="Makeup Brushes">
+                        <h4>Makeup Brush Set</h4>
+                        <p>$24.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skincare" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Skincare</h2>
+            <div class="product-row">
+                <a href="https://www.amazon.com/s?k=hydrating%20serum&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=500&fit=crop" alt="Serum">
+                        <h4>Hydrating Serum</h4>
+                        <p>$59.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=moisturizing%20cream&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=500&fit=crop" alt="Face Cream">
+                        <h4>Moisturizing Cream</h4>
+                        <p>$45.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=sheet%20mask%20set&ref=nb_sb_noss_2" target="_blank" class="product-link">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=500&fit=crop" alt="Face Mask">
+                        <h4>Sheet Mask Set</h4>
+                        <p>$35.99</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="trending" class="trending-section">
+        <div class="container">
+            <h2 class="section-title">Trending Now</h2>
+            <div class="trending-grid">
+                <a href="https://www.amazon.com/s?k=womens+fashion&ref=nb_sb_noss_2" target="_blank" class="trending-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fashion%20woman%20clothing%20spring%20collection%20elegant&image_size=landscape_4_3" alt="Spring Trends">
+                    <div class="trending-overlay">
+                        <h3>Spring Fashion</h3>
+                        <span>Shop Collection</span>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=beauty+products&ref=nb_sb_noss_2" target="_blank" class="trending-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20cosmetics%20makeup%20beauty%20products%20elegant&image_size=landscape_4_3" alt="Beauty Collection">
+                    <div class="trending-overlay">
+                        <h3>New Beauty</h3>
+                        <span>Shop Collection</span>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/s?k=skincare&ref=nb_sb_noss_2" target="_blank" class="trending-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=skincare%20products%20cream%20serum%20bottles%20elegant%20spa&image_size=landscape_4_3" alt="Skincare">
+                    <div class="trending-overlay">
+                        <h3>Skincare Must-Haves</h3>
+                        <span>Shop Collection</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands" class="brands-section">
+        <div class="container">
+            <h2 class="section-title">Trusted Brands</h2>
+            <div class="brands-grid">
+                <a href="https://www.amazon.com/s?k=luxury+fashion&ref=nb_sb_noss_2" target="_blank" class="brand-item">LUXE</a>
+                <a href="https://www.amazon.com/s?k=zara&ref=nb_sb_noss_2" target="_blank" class="brand-item">CHIC</a>
+                <a href="https://www.amazon.com/s?k=sephora&ref=nb_sb_noss_2" target="_blank" class="brand-item">GLAM</a>
+                <a href="https://www.amazon.com/s?k=hm&ref=nb_sb_noss_2" target="_blank" class="brand-item">NOVA</a>
+                <a href="https://www.amazon.com/s?k=asos&ref=nb_sb_noss_2" target="_blank" class="brand-item">STYLE</a>
+                <a href="https://www.amazon.com/s?k=ulta&ref=nb_sb_noss_2" target="_blank" class="brand-item">BEAUTY</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop" alt="Summer Fashion">
+                    <div class="blog-content">
+                        <span class="blog-date">May 28, 2026</span>
+                        <h3>10 Summer Fashion Essentials You Need in 2026</h3>
+                        <p>Discover the must-have fashion items that will keep you stylish and comfortable throughout the hot summer months...</p>
+                        <a href="blog-article-1.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=250&fit=crop" alt="Skincare Routine">
+                    <div class="blog-content">
+                        <span class="blog-date">May 25, 2026</span>
+                        <h3>The Ultimate Morning Skincare Routine for Glowing Skin</h3>
+                        <p>Start your day right with these essential skincare steps that will give you radiant, healthy-looking skin...</p>
+                        <a href="blog-article-2.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=250&fit=crop" alt="Beauty Trends">
+                    <div class="blog-content">
+                        <span class="blog-date">May 22, 2026</span>
+                        <h3>Top 5 Beauty Trends Taking Over Social Media</h3>
+                        <p>From glass skin to bold lips, these beauty trends are dominating your feed and they're here to stay...</p>
+                        <a href="blog-article-3.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=250&fit=crop" alt="Fashion Week">
+                    <div class="blog-content">
+                        <span class="blog-date">May 19, 2026</span>
+                        <h3>Fashion Week Highlights: What We Saw on the Runways</h3>
+                        <p>Get the inside scoop on the biggest fashion moments from the recent runway shows around the world...</p>
+                        <a href="blog-article-4.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?w=400&h=250&fit=crop" alt="Skincare Tips">
+                    <div class="blog-content">
+                        <span class="blog-date">May 16, 2026</span>
+                        <h3>7 Skincare Mistakes You're Making and How to Fix Them</h3>
+                        <p>Avoid these common skincare pitfalls that could be damaging your skin without you even knowing...</p>
+                        <a href="blog-article-5.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=400&h=250&fit=crop" alt="Makeup Tutorial">
+                    <div class="blog-content">
+                        <span class="blog-date">May 13, 2026</span>
+                        <h3>How to Achieve the Perfect No-Makeup Makeup Look</h3>
+                        <p>Learn the techniques to enhance your natural beauty with this effortless everyday makeup tutorial...</p>
+                        <a href="blog-article-6.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=250&fit=crop" alt="Dress Styles">
+                    <div class="blog-content">
+                        <span class="blog-date">May 10, 2026</span>
+                        <h3>Dresses for Every Occasion: A Complete Guide</h3>
+                        <p>From casual brunches to formal events, find the perfect dress style for any occasion in your calendar...</p>
+                        <a href="blog-article-7.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=250&fit=crop" alt="Anti-Aging">
+                    <div class="blog-content">
+                        <span class="blog-date">May 7, 2026</span>
+                        <h3>Best Anti-Aging Ingredients You Need to Know About</h3>
+                        <p>Stay ahead of the curve with these powerful anti-aging ingredients that actually deliver results...</p>
+                        <a href="blog-article-8.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=250&fit=crop" alt="Accessories">
+                    <div class="blog-content">
+                        <span class="blog-date">May 4, 2026</span>
+                        <h3>Accessories That Will Elevate Any Outfit Instantly</h3>
+                        <p>Transform your look from basic to stunning with these must-have accessory pieces for every wardrobe...</p>
+                        <a href="blog-article-9.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=250&fit=crop" alt="Clean Beauty">
+                    <div class="blog-content">
+                        <span class="blog-date">May 1, 2026</span>
+                        <h3>Clean Beauty: Why It Matters and Top Products to Try</h3>
+                        <p>Discover the benefits of clean beauty products and our curated selection of the best natural options...</p>
+                        <a href="blog-article-10.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=zara%20fashion%20store%20clothing%20modern%20style&image_size=landscape_4_3" alt="Zara Review">
+                    <div class="blog-content">
+                        <span class="blog-date">May 12, 2026</span>
+                        <h3>Zara Review: Is This Fast Fashion Brand Worth Your Money?</h3>
+                        <p>An in-depth review of Zara's quality, style, and sustainability efforts...</p>
+                        <a href="blog-article-18.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sephora%20beauty%20store%20cosmetics%20luxury%20makeup&image_size=landscape_4_3" alt="Sephora Review">
+                    <div class="blog-content">
+                        <span class="blog-date">May 15, 2026</span>
+                        <h3>Sephora Review: The Ultimate Beauty Destination</h3>
+                        <p>Everything you need to know about shopping at Sephora...</p>
+                        <a href="blog-article-19.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ulta%20beauty%20store%20skincare%20products%20drugstore&image_size=landscape_4_3" alt="Ulta Review">
+                    <div class="blog-content">
+                        <span class="blog-date">May 20, 2026</span>
+                        <h3>Ulta Beauty Review: Drugstore to Luxury</h3>
+                        <p>Explore Ulta's unique blend of affordable and luxury beauty products...</p>
+                        <a href="blog-article-21.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=summer%20fashion%20trends%202026%20women%20clothing%20beach&image_size=landscape_4_3" alt="Summer Fashion Trends">
+                    <div class="blog-content">
+                        <span class="blog-date">May 25, 2026</span>
+                        <h3>Summer Fashion Trends 2026 - What's Hot This Season</h3>
+                        <p>Discover the hottest summer fashion trends for 2026, from vibrant colors to sustainable fabrics...</p>
+                        <a href="blog-article-29.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=workplace%20fashion%20professional%20business%20attire%20office&image_size=landscape_4_3" alt="Workplace Fashion">
+                    <div class="blog-content">
+                        <span class="blog-date">May 25, 2026</span>
+                        <h3>Workplace Fashion Guide - Dress for Success</h3>
+                        <p>Master the art of professional dressing with our comprehensive workplace fashion guide...</p>
+                        <a href="blog-article-30.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=jeans%20fashion%20denim%20pants%20style%20casual&image_size=landscape_4_3" alt="Jeans Guide">
+                    <div class="blog-content">
+                        <span class="blog-date">May 27, 2026</span>
+                        <h3>The Ultimate Jeans Buying Guide - Find Your Perfect Fit</h3>
+                        <p>Find your perfect pair of jeans with our comprehensive buying guide...</p>
+                        <a href="blog-article-31.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=lipstick%20cosmetics%20makeup%20beauty%20red%20lips&image_size=landscape_4_3" alt="Lipstick Guide">
+                    <div class="blog-content">
+                        <span class="blog-date">May 27, 2026</span>
+                        <h3>Lipstick Guide - Find Your Perfect Shade</h3>
+                        <p>Discover how to choose the perfect lipstick shade for your skin tone...</p>
+                        <a href="blog-article-32.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=foundation%20makeup%20cosmetics%20beauty%20skin%20coverage&image_size=landscape_4_3" alt="Foundation Guide">
+                    <div class="blog-content">
+                        <span class="blog-date">May 29, 2026</span>
+                        <h3>Foundation 101 - How to Choose the Right Formula</h3>
+                        <p>Learn everything you need to know about choosing the right foundation...</p>
+                        <a href="blog-article-33.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=eyeshadow%20palette%20colorful%20makeup%20beauty%20cosmetics&image_size=landscape_4_3" alt="Eyeshadow Guide">
+                    <div class="blog-content">
+                        <span class="blog-date">May 29, 2026</span>
+                        <h3>Eyeshadow Color Theory - Create Stunning Looks</h3>
+                        <p>Master eyeshadow color theory and create stunning eye makeup looks...</p>
+                        <a href="blog-article-34.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sensitive%20skin%20care%20gentle%20skincare%20products%20natural&image_size=landscape_4_3" alt="Sensitive Skin Care">
+                    <div class="blog-content">
+                        <span class="blog-date">May 31, 2026</span>
+                        <h3>Sensitive Skin Care - Gentle and Effective Routine</h3>
+                        <p>Discover the best skincare routine for sensitive skin with gentle ingredients...</p>
+                        <a href="blog-article-35.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anti%20aging%20skincare%20luxury%20beauty%20products%20wrinkles&image_size=landscape_4_3" alt="Anti-Aging Skincare">
+                    <div class="blog-content">
+                        <span class="blog-date">May 31, 2026</span>
+                        <h3>Anti-Aging Skincare - Fight Wrinkles and Fine Lines</h3>
+                        <p>Learn about the best anti-aging ingredients and how to fight wrinkles...</p>
+                        <a href="blog-article-36.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=men%20skincare%20grooming%20routine%20beauty%20products%20male&image_size=landscape_4_3" alt="Men's Skincare">
+                    <div class="blog-content">
+                        <span class="blog-date">June 2, 2026</span>
+                        <h3>Men's Skincare Guide - Simple and Effective Routine</h3>
+                        <p>A complete guide to men's skincare with simple and effective tips...</p>
+                        <a href="blog-article-37.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=face%20mask%20skincare%20beauty%20products%20various%20types&image_size=landscape_4_3" alt="Face Masks">
+                    <div class="blog-content">
+                        <span class="blog-date">June 2, 2026</span>
+                        <h3>Face Mask Guide - Types and Benefits for Every Skin Type</h3>
+                        <p>Explore the different types of face masks and their benefits...</p>
+                        <a href="blog-article-38.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=trifecta%20nutrition%20healthy%20meal%20delivery%20fresh%20food%20prep%20containers%20premium&image_size=landscape_4_3" alt="Trifecta Nutrition">
+                    <div class="blog-content">
+                        <span class="blog-date">June 5, 2026</span>
+                        <h3>Trifecta Nutrition Review: The Ultimate Meal Prep Solution</h3>
+                        <p>Discover why Trifecta Nutrition is the top choice for healthy, delicious meal delivery...</p>
+                        <a href="blog-article-39.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section">
+        <div class="container">
+            <div class="promo-content">
+                <h2>Exclusive Offer</h2>
+                <p>Use code STYLE20 for 20% off your first order!</p>
+                <a href="https://www.amazon.com/s?k=womens+fashion&ref=nb_sb_noss_2" target="_blank" class="cta-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">YOUR STYLE HUB</span>
+                    <p>Your destination for fashion, beauty, and skincare</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#fashion">Fashion</a></li>
+                        <li><a href="#beauty">Beauty</a></li>
+                        <li><a href="#skincare">Skincare</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/yourstylehub"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/yourstylehub"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/yourstylehub"><i class="fab fa-twitter"></i></a>
+                        <a href="https://pinterest.com/yourstylehub"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Your Style Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
