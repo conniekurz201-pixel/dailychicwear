@@ -1,4 +1,4 @@
- Categories Data
+// Categories Data
 const categories = [
   {
     id: 'fashion',
