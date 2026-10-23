@@ -1,4 +1,4 @@
-﻿// Categories Data
+/ Categories Data
 const categories = [
   {
     id: 'fashion',
@@ -12,7 +12,7 @@ const categories = [
     name: 'Beauty',
     description: 'Skincare, makeup, and haircare essentials for your best look',
     image: 'https://picsum.photos/seed/cat-beauty/800/500',
-    count: 5
+    count: 6
   },
   {
     id: 'style',
@@ -814,6 +814,39 @@ const articles = [
       { name: 'Precision Burr Grinder', image: 'https://picsum.photos/seed/product-30-1/400/400', url: 'https://www.amazon.com/dp/B09XYZC9?tag=your-affiliate-id', price: '$89.99', description: '40 grind settings, conical burrs for consistent grinding. Quiet operation.', badge: 'Professional' },
       { name: 'Pour-Over Coffee Kit', image: 'https://picsum.photos/seed/product-30-2/400/400', url: 'https://www.amazon.com/dp/B09XYZD0?tag=your-affiliate-id', price: '$34.99', description: 'Drip cone with glass carafe, filters, and measuring scoop. 1-4 cup capacity.', badge: 'Pour Over' }
     ]
+  },
+  {
+    id: '31',
+    slug: 'summer-skincare-routine-2026',
+    title: "Summer Skincare Routine: How to Keep Your Skin Glowing in the Heat",
+    excerpt: "Struggling with oily skin, sun damage, or breakouts this summer? We've got the ultimate skincare routine to keep you fresh and glowing all season long.",
+    category: 'beauty',
+    image: 'https://picsum.photos/seed/summer-skincare-routine-2026/1200/600',
+    publishDate: '2026-10-23',
+    readTime: '6 min read',
+    content: `
+    <h2>Why Summer Changes Everything for Your Skin</h2>`n<p>As temperatures rise and humidity spikes, your skin needs a completely different approach than during the cooler months. Heat and humidity can lead to excess oil production, clogged pores, and irritation from UV exposure. The good news? With the right routine, you can achieve that coveted summer glow while protecting your skin barrier.</p>`n`n<h3>1. Lighten Up Your Moisturizer</h3>`n<p>Heavy creams that work great in winter can feel greasy in summer. Switch to a lightweight, oil-free gel or lotion formula that hydrates without weighing you down. Look for ingredients like hyaluronic acid and niacinamide for hydration without the heaviness.</p>`n`n<h3>2. Sunscreen Is Non-Negotiable</h3>`n<p>Applying SPF 30+ broad-spectrum sunscreen every single day is the single most important thing you can do for your skin. Don't forget to reapply every two hours when you're outside, and use a lip balm with SPF too.</p>`n`n<h3>3. Double-Cleanse at Night</h3>`n<p>Sweat, sunscreen, and environmental pollutants build up during the day. Start with an oil-based cleanser to break down sunscreen, then follow with a gentle water-based cleanser to deep-clean your pores without stripping moisture.</p>`n`n<h3>4. Add a Hydrating Mask</h3>`n<p>Use a sheet mask or hydrating face mask 2-3 times per week. Look for formulas containing aloe vera, cucumber, or ceramides to soothe and replenish summer-stressed skin.</p>`n`n<p>Remember: consistency beats complexity. Stick to these four steps and you'll see noticeably healthier, more radiant skin all summer long.</p>
+    `,
+    products: [
+    {
+        "name":  "CeraVe PM Moisturizing Lotion",
+        "image":  "https://picsum.photos/seed/prod-summer-1/400/400",
+        "price":  "$16.99",
+        "url":  "https://www.amazon.com/s?k=cerave+pm+moisturizer"
+    },
+    {
+        "name":  "La Roche-Posay Anthelios SPF 60",
+        "image":  "https://picsum.photos/seed/prod-summer-2/400/400",
+        "price":  "$24.99",
+        "url":  "https://www.amazon.com/s?k=la+roche+posay+anthelios"
+    },
+    {
+        "name":  "Cure Aqua Gel Face Mask (5 pack)",
+        "image":  "https://picsum.photos/seed/prod-summer-3/400/400",
+        "price":  "$12.99",
+        "url":  "https://www.amazon.com/s?k=hydrating+face+mask"
+    }
+]
   }
 ];
 
