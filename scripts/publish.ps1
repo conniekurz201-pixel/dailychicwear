@@ -37,9 +37,10 @@ $contentText = $article.content
 $imageUrl = "https://picsum.photos/seed/$slug/1200/600"
 
 if ($article.products -and $article.products.Count -gt 0) {
-    $prodJson = ($article.products | ConvertTo-Json -Depth 4)
+    # ConvertTo-Json 输出是合法的 JSON/JS 对象，只需要把 CRLF 转成 LF
+    $prodJson = ($article.products | ConvertTo-Json -Depth 4) -replace "`r`n", "`n"
 } else {
-    $prodJson = "[`n    ]"
+    $prodJson = "[]"
 }
 
 # Build article object block without PowerShell here-string quoting issues

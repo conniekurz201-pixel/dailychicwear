@@ -1,4 +1,4 @@
-/ Categories Data
+ Categories Data
 const categories = [
   {
     id: 'fashion',
@@ -816,7 +816,7 @@ const articles = [
     ]
   },
   {
-    id: '31',
+    id: '32',
     slug: 'summer-skincare-routine-2026',
     title: "Summer Skincare Routine: How to Keep Your Skin Glowing in the Heat",
     excerpt: "Struggling with oily skin, sun damage, or breakouts this summer? We've got the ultimate skincare routine to keep you fresh and glowing all season long.",
@@ -825,26 +825,47 @@ const articles = [
     publishDate: '2026-10-23',
     readTime: '6 min read',
     content: `
-    <h2>Why Summer Changes Everything for Your Skin</h2>`n<p>As temperatures rise and humidity spikes, your skin needs a completely different approach than during the cooler months. Heat and humidity can lead to excess oil production, clogged pores, and irritation from UV exposure. The good news? With the right routine, you can achieve that coveted summer glow while protecting your skin barrier.</p>`n`n<h3>1. Lighten Up Your Moisturizer</h3>`n<p>Heavy creams that work great in winter can feel greasy in summer. Switch to a lightweight, oil-free gel or lotion formula that hydrates without weighing you down. Look for ingredients like hyaluronic acid and niacinamide for hydration without the heaviness.</p>`n`n<h3>2. Sunscreen Is Non-Negotiable</h3>`n<p>Applying SPF 30+ broad-spectrum sunscreen every single day is the single most important thing you can do for your skin. Don't forget to reapply every two hours when you're outside, and use a lip balm with SPF too.</p>`n`n<h3>3. Double-Cleanse at Night</h3>`n<p>Sweat, sunscreen, and environmental pollutants build up during the day. Start with an oil-based cleanser to break down sunscreen, then follow with a gentle water-based cleanser to deep-clean your pores without stripping moisture.</p>`n`n<h3>4. Add a Hydrating Mask</h3>`n<p>Use a sheet mask or hydrating face mask 2-3 times per week. Look for formulas containing aloe vera, cucumber, or ceramides to soothe and replenish summer-stressed skin.</p>`n`n<p>Remember: consistency beats complexity. Stick to these four steps and you'll see noticeably healthier, more radiant skin all summer long.</p>
+    <h2>Why Summer Changes Everything for Your Skin</h2>
+    <p>As temperatures rise and humidity spikes, your skin needs a completely different approach than during the cooler months. Heat and humidity can lead to excess oil production, clogged pores, and irritation from UV exposure. The good news? With the right routine, you can achieve that coveted summer glow while protecting your skin barrier.</p>
+    
+    <h3>1. Lighten Up Your Moisturizer</h3>
+    <p>Heavy creams that work great in winter can feel greasy in summer. Switch to a lightweight, oil-free gel or lotion formula that hydrates without weighing you down. Look for ingredients like hyaluronic acid and niacinamide for hydration without the heaviness.</p>
+    
+    <h3>2. Sunscreen Is Non-Negotiable</h3>
+    <p>Applying SPF 30+ broad-spectrum sunscreen every single day is the single most important thing you can do for your skin. Don't forget to reapply every two hours when you're outside, and use a lip balm with SPF too.</p>
+    
+    <h3>3. Double-Cleanse at Night</h3>
+    <p>Sweat, sunscreen, and environmental pollutants build up during the day. Start with an oil-based cleanser to break down sunscreen, then follow with a gentle water-based cleanser to deep-clean your pores without stripping moisture.</p>
+    
+    <h3>4. Add a Hydrating Mask</h3>
+    <p>Use a sheet mask or hydrating face mask 2-3 times per week. Look for formulas containing aloe vera, cucumber, or ceramides to soothe and replenish summer-stressed skin.</p>
+    
+    <p>Remember: consistency beats complexity. Stick to these four steps and you'll see noticeably healthier, more radiant skin all summer long.</p>
     `,
     products: [
     {
         "name":  "CeraVe PM Moisturizing Lotion",
         "image":  "https://picsum.photos/seed/prod-summer-1/400/400",
+        "url":  "https://www.amazon.com/s?k=cerave+pm+moisturizer",
         "price":  "$16.99",
-        "url":  "https://www.amazon.com/s?k=cerave+pm+moisturizer"
+        "description":  "Lightweight, oil-free moisturizer with hyaluronic acid and ceramides. Perfect for summer hydration without the heaviness.",
+        "badge":  "Dermatologist Pick"
     },
     {
         "name":  "La Roche-Posay Anthelios SPF 60",
         "image":  "https://picsum.photos/seed/prod-summer-2/400/400",
+        "url":  "https://www.amazon.com/s?k=la+roche+posay+anthelios",
         "price":  "$24.99",
-        "url":  "https://www.amazon.com/s?k=la+roche+posay+anthelios"
+        "description":  "Broad-spectrum SPF 60 with Cell-Ox Shield technology. Water-resistant and non-comedogenic.",
+        "badge":  "Best Sunscreen"
     },
     {
         "name":  "Cure Aqua Gel Face Mask (5 pack)",
         "image":  "https://picsum.photos/seed/prod-summer-3/400/400",
+        "url":  "https://www.amazon.com/s?k=hydrating+face+mask",
         "price":  "$12.99",
-        "url":  "https://www.amazon.com/s?k=hydrating+face+mask"
+        "description":  "Hydrating sheet masks infused with hyaluronic acid and botanical extracts. Soothes and replenishes summer-stressed skin.",
+        "badge":  "Affordable Find"
     }
 ]
   }
