@@ -47,9 +47,12 @@ git commit -m "$Message" 2>&1 | ForEach-Object { Write-Host "  $_" }
 # ---- Push ----
 Write-Host ""
 Write-Host "=== Push to GitHub ==="
-git push 2>&1 | Out-Null
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Push FAILED" -ForegroundColor Red
+# git push normally outputs to stderr — use cmd to properly capture exit code
+$pushOutput = cmd.exe /c "git push 2>&1" 2>&1
+$pushExit = $LASTEXITCODE
+$pushOutput | ForEach-Object { Write-Host "  $_" }
+if ($pushExit -ne 0) {
+    Write-Host "❌ Push FAILED (exit $pushExit)" -ForegroundColor Red
     exit 1
 }
 Write-Host "✅ Push OK" -ForegroundColor Green
