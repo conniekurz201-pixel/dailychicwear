@@ -30,13 +30,10 @@ git commit -m "$Message" 2>&1 | ForEach-Object { Write-Host "  $_" }
 
 Write-Host ""
 Write-Host "=== Push ==="
-$pushOutput = git push 2>&1
-$pushOutput | ForEach-Object { Write-Host "  $_" }
-if ($pushOutput -match "main -> main") {
-    Write-Host ""
-    Write-Host "=== PUSH OK ===" -ForegroundColor Green
+git push 2>&1 | Out-Null
+if ($LASTEXITCODE -eq 0) {
+    Write-Host "=== PUSH OK ==="
 } else {
-    Write-Host ""
-    Write-Host "=== PUSH MAY HAVE FAILED - check output above ===" -ForegroundColor Red
+    Write-Host "=== PUSH FAILED ==="
     exit 1
 }
