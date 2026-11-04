@@ -1,11 +1,26 @@
 param(
-    [string]$Message = ""
+    [string]$Message = "",
+    [int]$MaxWaitSeconds = 90,
+    [string]$VerifyUrl = ""
 )
 
 $ErrorActionPreference = "Stop"
 Set-Location "$PSScriptRoot\.."
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
+# ---- Rate limit: cooldown 2 min between pushes ----
+$lastPushFile = "$env:TEMP\altitude_last_push.txt"
+if (Test-Path $lastPushFile) {
+    $last = [DateTime]::Parse((Get-Content $lastPushFile -Raw).Trim())
+    $elapsed = (Get-Date) - $last
+    if ($elapsed.TotalSeconds -lt 120) {
+        $wait = [Math]::Ceiling(120 - $elapsed.TotalSeconds)
+        Write-Host "🕐 Cooldown: last push was $([Math]::Floor($elapsed.TotalSeconds))s ago. Waiting ${wait}s..."
+        Start-Sleep -Seconds $wait
+    }
+}
+
+# ---- Git status ----
 Write-Host "=== Git Status ==="
 $status = git status --short 2>&1
 if (-not $status) {
@@ -14,6 +29,7 @@ if (-not $status) {
 }
 $status | ForEach-Object { Write-Host "  $_" }
 
+# ---- Auto message ----
 if (-not $Message) {
     $newArticle = $status | Where-Object { $_ -match "blog-article-\d+\.html" -and $_ -match "^\?\?" } | Select-Object -First 1
     if ($newArticle) {
@@ -28,12 +44,64 @@ Write-Host "=== Commit: $Message ==="
 git add -A 2>&1 | Out-Null
 git commit -m "$Message" 2>&1 | ForEach-Object { Write-Host "  $_" }
 
+# ---- Push ----
 Write-Host ""
-Write-Host "=== Push ==="
+Write-Host "=== Push to GitHub ==="
 git push 2>&1 | Out-Null
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "=== PUSH OK ==="
-} else {
-    Write-Host "=== PUSH FAILED ==="
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "❌ Push FAILED" -ForegroundColor Red
     exit 1
+}
+Write-Host "✅ Push OK" -ForegroundColor Green
+
+# Record push timestamp for rate limit
+Get-Date -Format o | Out-File -FilePath $lastPushFile -Encoding UTF8
+
+# ---- Force trigger Hostinger deploy via direct webhook POST ----
+# (Dual insurance: GitHub webhook + direct POST to bypass queue)
+$HOSTINGER_WEBHOOK = "https://webhooks.hostinger.com/deploy/56ca3a4a0608faedbcdcd38b750c667"
+Write-Host ""
+Write-Host "=== Direct POST to Hostinger (force deploy) ===" -ForegroundColor Cyan
+try {
+    $whPayload = @{
+        action = "pushed"
+        ref = "refs/heads/main"
+        repository = @{ full_name = "conniekurz201-pixel/dailychicwear" }
+    } | ConvertTo-Json -Depth 5
+    Invoke-RestMethod -Uri $HOSTINGER_WEBHOOK -Method Post -ContentType "application/json" -Body $whPayload -TimeoutSec 10 | Out-Null
+    Write-Host "✅ Webhook POST sent (force trigger)" -ForegroundColor Green
+} catch {
+    Write-Host "⚠️  Webhook POST failed: $($_.Exception.Message)" -ForegroundColor Yellow
+    Write-Host "   GitHub webhook should still work as backup."
+}
+
+# ---- Auto-deploy verification ----
+Write-Host ""
+Write-Host "=== Waiting for auto-deploy (up to $MaxWaitSeconds s) ==="
+if ($VerifyUrl) {
+    $deployed = $false
+    $step = 15
+    $waited = 0
+    while ($waited -lt $MaxWaitSeconds) {
+        Start-Sleep -Seconds $step
+        $waited += $step
+        try {
+            $r = Invoke-WebRequest -Uri $VerifyUrl -UseBasicParsing -TimeoutSec 10
+            if ($r.StatusCode -eq 200) {
+                Write-Host "✅ Deployed after ${waited}s" -ForegroundColor Green
+                $deployed = $true
+                break
+            }
+        } catch {}
+        Write-Host "  ... ${waited}s, still waiting"
+    }
+    if (-not $deployed) {
+        Write-Host ""
+        Write-Host "⚠️  Auto-deploy may have FAILED after ${MaxWaitSeconds}s" -ForegroundColor Yellow
+        Write-Host "   Please manually trigger deploy in Hostinger hPanel:"
+        Write-Host "   高级 → 分布式版本控制系统 → ... → 部署"
+    }
+} else {
+    Write-Host "✅ Push done. Wait ~60s for auto-deploy."
+    Write-Host "   (Tip: add -VerifyUrl 'https://dailychicwear.com/blog-article-XX.html' to auto-verify)"
 }
