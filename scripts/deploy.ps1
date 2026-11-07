@@ -81,24 +81,22 @@ if ($sshExit -eq 0 -and (($sshOut -join " ") -notmatch "Permission denied") -and
 }
 
 # ---- Fallback: force trigger Hostinger deploy via direct webhook POST ----
-$HOSTINGER_WEBHOOK = "https://webhooks.hostinger.com/deploy/56ca3a4a0608faedbcdcd38b750c667"
-if ($sshPulled) { goto SkipWebhook }
-Write-Host ""
-Write-Host "=== Direct POST to Hostinger (force deploy) ===" -ForegroundColor Cyan
-try {
-    $whPayload = @{
-        action = "pushed"
-        ref = "refs/heads/main"
-        repository = @{ full_name = "conniekurz201-pixel/dailychicwear" }
-    } | ConvertTo-Json -Depth 5
-    Invoke-RestMethod -Uri $HOSTINGER_WEBHOOK -Method Post -ContentType "application/json" -Body $whPayload -TimeoutSec 10 | Out-Null
-    Write-Host "✅ Webhook POST sent (force trigger)" -ForegroundColor Green
-} catch {
-    Write-Host "⚠️  Webhook POST failed: $($_.Exception.Message)" -ForegroundColor Yellow
-    Write-Host "   GitHub webhook should still work as backup."
+if (-not $sshPulled) {
+    $HOSTINGER_WEBHOOK = "https://webhooks.hostinger.com/deploy/56ca3a4a0608faedbcdcd38b750c667"
+    Write-Host ""
+    Write-Host "=== Direct POST to Hostinger (force deploy) ===" -ForegroundColor Cyan
+    try {
+        $whPayload = @{
+            action = "pushed"
+            ref = "refs/heads/main"
+            repository = @{ full_name = "conniekurz201-pixel/dailychicwear" }
+        } | ConvertTo-Json -Depth 5
+        Invoke-RestMethod -Uri $HOSTINGER_WEBHOOK -Method Post -ContentType "application/json" -Body $whPayload -TimeoutSec 10 | Out-Null
+        Write-Host "✅ Webhook POST sent (force trigger)" -ForegroundColor Green
+    } catch {
+        Write-Host "⚠️  Webhook POST failed: $($_.Exception.Message)" -ForegroundColor Yellow
+    }
 }
-
-SkipWebhook:
 
 # ---- Auto-deploy verification ----
 Write-Host ""
