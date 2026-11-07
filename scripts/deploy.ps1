@@ -60,9 +60,29 @@ Write-Host "✅ Push OK" -ForegroundColor Green
 # Record push timestamp for rate limit
 Get-Date -Format o | Out-File -FilePath $lastPushFile -Encoding UTF8
 
-# ---- Force trigger Hostinger deploy via direct webhook POST ----
-# (Dual insurance: GitHub webhook + direct POST to bypass queue)
+# ---- Primary: pull directly on the Hostinger server over SSH ----
+# (Most reliable path: no webhook queue involved)
+$SSH_HOST = "195.35.62.134"
+$SSH_USER = "u333302685"
+$SSH_PORT = 65002
+$REMOTE_DIR = "~/domains/dailychicwear.com/public_html"
+$RemoteCmd = "mkdir -p ~/.ssh; grep -q 'github.com' ~/.ssh/known_hosts || ssh-keyscan -t ed25519,rsa github.com 2>/dev/null >> ~/.ssh/known_hosts; cd $REMOTE_DIR && git pull 2>&1 | tail -8"
+Write-Host ""
+Write-Host "=== SSH git pull on Hostinger ===" -ForegroundColor Cyan
+$sshPulled = $false
+$sshOut = & ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=15 -p $SSH_PORT "$SSH_USER@$SSH_HOST" $RemoteCmd 2>&1
+$sshExit = $LASTEXITCODE
+$sshOut | ForEach-Object { Write-Host "  $_" }
+if ($sshExit -eq 0 -and (($sshOut -join " ") -notmatch "Permission denied") -and (($sshOut -join " ") -notmatch "Host key verification failed")) {
+    Write-Host "✅ SSH pull OK" -ForegroundColor Green
+    $sshPulled = $true
+} else {
+    Write-Host "⚠️  SSH pull unavailable (will fall back to webhook)" -ForegroundColor Yellow
+}
+
+# ---- Fallback: force trigger Hostinger deploy via direct webhook POST ----
 $HOSTINGER_WEBHOOK = "https://webhooks.hostinger.com/deploy/56ca3a4a0608faedbcdcd38b750c667"
+if ($sshPulled) { goto SkipWebhook }
 Write-Host ""
 Write-Host "=== Direct POST to Hostinger (force deploy) ===" -ForegroundColor Cyan
 try {
@@ -77,6 +97,8 @@ try {
     Write-Host "⚠️  Webhook POST failed: $($_.Exception.Message)" -ForegroundColor Yellow
     Write-Host "   GitHub webhook should still work as backup."
 }
+
+SkipWebhook:
 
 # ---- Auto-deploy verification ----
 Write-Host ""
