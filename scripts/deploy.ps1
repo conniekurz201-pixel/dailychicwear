@@ -13,8 +13,8 @@ $lastPushFile = "$env:TEMP\altitude_last_push.txt"
 if (Test-Path $lastPushFile) {
     $last = [DateTime]::Parse((Get-Content $lastPushFile -Raw).Trim())
     $elapsed = (Get-Date) - $last
-    if ($elapsed.TotalSeconds -lt 120) {
-        $wait = [Math]::Ceiling(120 - $elapsed.TotalSeconds)
+    if ($elapsed.TotalSeconds -lt 20) {
+        $wait = [Math]::Ceiling(20 - $elapsed.TotalSeconds)
         Write-Host "🕐 Cooldown: last push was $([Math]::Floor($elapsed.TotalSeconds))s ago. Waiting ${wait}s..."
         Start-Sleep -Seconds $wait
     }
